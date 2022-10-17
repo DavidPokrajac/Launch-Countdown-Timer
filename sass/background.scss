@@ -8,6 +8,8 @@ $dark: hsl(234, 17%, 12%);
 $darkBlue: hsl(235, 16%, 14%);
 $darkDesaturatedBlue: hsl(236, 21%, 26%);
 $white: hsl(0, 0%, 100%);
+$grayishBlue: hsl(237, 18%, 59%);
+$softRed: hsl(345, 95%, 68%);
 
 /* Image variables */
 $starsBg: "../images/bg-stars.svg";
@@ -42,7 +44,79 @@ body {
         h1 {
             color: $white;
             text-transform: uppercase;
-        }   
+            font-size: 100%;
+            letter-spacing: 0.3rem;
+            margin-bottom: 3rem;
+        }
+
+        #timer-container {
+            .timer-item {
+                display: inline-block;
+                background-color: inherit;
+                color: $grayishBlue;
+                text-transform: uppercase;
+                font-size: 10px;
+                width: 85px;
+                height: 85px;
+                text-align: center;
+                margin: 0 0.5rem;
+                position: relative;
+                font-weight: 700;
+                letter-spacing: 0.2rem;
+
+                > span {
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    background: $darkDesaturatedBlue;
+                    font-size: 45px;
+                    color: $softRed;
+                    font-weight: 700;
+                    border-radius: 5px;
+                    padding: 0.75rem 0;
+                    position: relative;
+                    margin-bottom: 1rem;
+                    letter-spacing: 0;
+
+                    &::before, &::after {
+                        content: "";
+                        display: inline-block;
+                        border-radius: 50%;
+                        height: 10px;
+                        width: 10px;
+                        background-color: $dark;
+                        position: absolute;
+                        z-index: 200;
+                    }
+    
+                    &::before {
+                        top: 50%;
+                        right: 100%;
+                        transform: translate(50%, -50%);
+                    }
+    
+                    &::after {
+                        top: 50%;
+                        left: 100%;
+                        transform: translate(-50%, -50%);
+                    }
+                    
+                }
+
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    background-color: hsl(236, 21%, 26%);
+                    opacity: 0.5;
+                    border-radius: 10px;
+                    position: absolute;
+                    height: 50%;
+                    width: 100%;
+                    z-index: 100;
+                    box-shadow: 0 0 2px black;
+                }
+            }
+        }
     }
 
     footer {
@@ -52,9 +126,22 @@ body {
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
+        object-fit: cover;
 
         display: flex;
         justify-content: center;
         align-items: center;
+
+        span {
+            display: inline-block;
+            margin: 2rem 1rem 0 1rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .timer-item {
+            width: 75px;
+            height: 75px;
+        }
     }
 }
