@@ -1,0 +1,60 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Color variables */ 
+$dark: hsl(234, 17%, 12%);
+$darkBlue: hsl(235, 16%, 14%);
+$darkDesaturatedBlue: hsl(236, 21%, 26%);
+$white: hsl(0, 0%, 100%);
+
+/* Image variables */
+$starsBg: "../images/bg-stars.svg";
+$faceIcon: "../images/icon-facebook.svg";
+$instaIcon: "../images/icon-instagram.svg";
+$pinterestIcon: "../images/icon-pinterest.svg";
+$hillsImg: "../images/pattern-hills.svg";
+
+$mainFontSize: 14px;
+
+$fontFamily: 'Red Hat Text', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap');
+
+body {
+    padding: 0;
+    height: 100vh;
+    background-color: $dark;
+    background-image: url($starsBg);
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: $fontFamily;
+    font-size: $mainFontSize;
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 75vh;
+
+        h1 {
+            color: $white;
+            text-transform: uppercase;
+        }   
+    }
+
+    footer {
+        width: 100vw;
+        height: 25vh;
+        background-image: url($hillsImg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

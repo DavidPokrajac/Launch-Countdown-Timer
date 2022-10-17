@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap");
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Color variables */
+/* Image variables */
+body {
+  padding: 0;
+  height: 100vh;
+  background-color: hsl(234deg, 17%, 12%);
+  background-image: url("../images/bg-stars.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 14px;
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+body main h1 {
+  color: hsl(0deg, 0%, 100%);
+  text-transform: uppercase;
+}
+body footer {
+  width: 100vw;
+  height: 25vh;
+  background-image: url("../images/pattern-hills.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=background.css.map */
