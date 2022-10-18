@@ -4,17 +4,15 @@
   margin: 0;
 }
 
-/* Color variables */
-/* Image variables */
 body {
   padding: 0;
   height: 100vh;
   background-color: hsl(234deg, 17%, 12%);
   background-image: url("../images/bg-stars.svg");
-  background-repeat: no-repeat;
-  background-position: center;
   font-family: "Red Hat Text", sans-serif;
   font-size: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 body main {
   display: flex;
@@ -44,6 +42,12 @@ body main #timer-container .timer-item {
   font-weight: 700;
   letter-spacing: 0.2rem;
 }
+@media screen and (max-width: 400px) {
+  body main #timer-container .timer-item {
+    width: 70px;
+    height: 70px;
+  }
+}
 body main #timer-container .timer-item > span {
   display: inline-block;
   width: 100%;
@@ -57,6 +61,11 @@ body main #timer-container .timer-item > span {
   position: relative;
   margin-bottom: 1rem;
   letter-spacing: 0;
+}
+@media screen and (max-width: 400px) {
+  body main #timer-container .timer-item > span {
+    font-size: 35px;
+  }
 }
 body main #timer-container .timer-item > span::before, body main #timer-container .timer-item > span::after {
   content: "";
@@ -97,8 +106,6 @@ body footer {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,9 +114,7 @@ body footer span {
   display: inline-block;
   margin: 2rem 1rem 0 1rem;
 }
-@media (max-width: 400px) {
-  body .timer-item {
-    width: 75px;
-    height: 75px;
-  }
+body footer span img:hover {
+  cursor: pointer;
+  filter: invert(63%) sepia(35%) saturate(5645%) hue-rotate(309deg) brightness(99%) contrast(99%);
 }/*# sourceMappingURL=background.css.map */

@@ -3,7 +3,8 @@
     margin: 0;
 }
 
-/* Color variables */ 
+$medium: 375px;
+
 $dark: hsl(234, 17%, 12%);
 $darkBlue: hsl(235, 16%, 14%);
 $darkDesaturatedBlue: hsl(236, 21%, 26%);
@@ -11,7 +12,6 @@ $white: hsl(0, 0%, 100%);
 $grayishBlue: hsl(237, 18%, 59%);
 $softRed: hsl(345, 95%, 68%);
 
-/* Image variables */
 $starsBg: "../images/bg-stars.svg";
 $faceIcon: "../images/icon-facebook.svg";
 $instaIcon: "../images/icon-instagram.svg";
@@ -19,26 +19,43 @@ $pinterestIcon: "../images/icon-pinterest.svg";
 $hillsImg: "../images/pattern-hills.svg";
 
 $mainFontSize: 14px;
-
 $fontFamily: 'Red Hat Text', sans-serif;
-
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap');
+
+@mixin rowFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin columnFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin pseudoProps {
+    content: "";
+    display: inline-block;
+}
+
+@mixin bgProps {
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 body {
     padding: 0;
     height: 100vh;
     background-color: $dark;
     background-image: url($starsBg);
-    background-repeat: no-repeat;
-    background-position: center;
     font-family: $fontFamily;
     font-size: $mainFontSize;
+    @include bgProps;
 
     main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include columnFlex;
         height: 75vh;
 
         h1 {
@@ -64,6 +81,11 @@ body {
                 font-weight: 700;
                 letter-spacing: 0.2rem;
 
+                @media screen and (max-width: 400px) {
+                    width: 70px;
+                    height: 70px;
+                }
+
                 > span {
                     display: inline-block;
                     width: 100%;
@@ -78,9 +100,12 @@ body {
                     margin-bottom: 1rem;
                     letter-spacing: 0;
 
+                    @media screen and (max-width: 400px) {
+                        font-size: 35px;
+                    }
+
                     &::before, &::after {
-                        content: "";
-                        display: inline-block;
+                        @include pseudoProps;
                         border-radius: 50%;
                         height: 10px;
                         width: 10px;
@@ -100,12 +125,10 @@ body {
                         left: 100%;
                         transform: translate(-50%, -50%);
                     }
-                    
                 }
 
                 &::before {
-                    content: "";
-                    display: inline-block;
+                    @include pseudoProps;
                     background-color: hsl(236, 21%, 26%);
                     opacity: 0.5;
                     border-radius: 10px;
@@ -123,25 +146,20 @@ body {
         width: 100vw;
         height: 25vh;
         background-image: url($hillsImg);
-        background-repeat: no-repeat;
-        background-position: center;
+        @include bgProps;
         background-size: 100% 100%;
-        object-fit: cover;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include rowFlex;
 
         span {
             display: inline-block;
             margin: 2rem 1rem 0 1rem;
-        }
-    }
 
-    @media (max-width: 400px) {
-        .timer-item {
-            width: 75px;
-            height: 75px;
+            img {
+                &:hover {
+                    cursor: pointer;
+                    filter: invert(63%) sepia(35%) saturate(5645%) hue-rotate(309deg) brightness(99%) contrast(99%);
+                }
+            }
         }
     }
 }
